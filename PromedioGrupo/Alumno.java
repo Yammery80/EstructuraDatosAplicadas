@@ -59,7 +59,7 @@ public class Alumno {
         return average;
     }
 
-    public void setAverage(double average) {
+    public void setAverage() {
         this.average = (this.structures + this.english + this.iot / 3);
     }
 
