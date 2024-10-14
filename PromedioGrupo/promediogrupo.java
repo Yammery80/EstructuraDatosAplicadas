@@ -43,7 +43,7 @@ public class promediogrupo {
 
         }
     }
-    
+    //Función para mostrar los datos
     public static void imprimirAlumnos(){
         System.out.println("Contenido del arreglo alumnos: ");
         for (Alumno a: alumnos){
@@ -52,10 +52,48 @@ public class promediogrupo {
             System.out.println(a.toString());
         }
     }
+    //Funcion para calcular Promedio Grupal
+    public static double calcularPromedioGrupo(){
+        double suma = 0;
+        for (Alumno a: alumnos){
+            suma += a.getAverage();
+        }
+        return (suma / alumnos.length);
+    }
+    
+    //Funcion para calcular Promedio Grupal Estructuras
+    public static double PromedioGrupoStructures(){
+        double suma = 0;
+        for (Alumno a: alumnos){
+            suma += a.getStructures();
+        }
+        return (suma / alumnos.length);
+    }
+
+    //Funcion para calcular Promedio Grupal Inglés
+    public static double PromedioGrupoEnglish(){
+        double suma = 0;
+        for (Alumno a: alumnos){
+            suma += a.getEnglish();
+        }
+        return (suma / alumnos.length);
+    }
+
+    //Funcion para calcular Promedio Grupal IoT
+    public static double PromedioGrupoIot(){
+        double suma = 0;
+        for (Alumno a: alumnos){
+            suma += a.getIot();
+        }
+        return (suma / alumnos.length);
+    }
 
     public static void main(String[] args) throws IOException {
         int size; //Tamaño del grupo
         double AverageGroup; //Promedio del grupo
+        double AverageStructures; //Promedio del grupo de Estructuras
+        double AverageEnglish; //Promedio del grupo de Inglés
+        double AverageIot; //Promedio del grupo de IoT
 
         // Recuperando el tamaño del arreglo
         System.out.println("Bienvenido a su sistema de cálculo de promedio grupal:");
@@ -65,20 +103,29 @@ public class promediogrupo {
 
         //Construir arreglo alumnos
         alumnos = new Alumno[size];
+
         //Introducir información de los alumnos
         leerAlumnos();
+
+        //Calcular el promedio del grupo
+        AverageGroup = calcularPromedioGrupo();
+        //Calcular el promedio del Structures
+        AverageStructures = PromedioGrupoStructures();
+        //Calcular el promedio del Inglés
+        AverageEnglish = PromedioGrupoEnglish();
+        //Calcular el promedio del IoT
+        AverageIot = PromedioGrupoIot();
+
         //Mostrar la información
         imprimirAlumnos();
 
-        // //Calculo de promedio de calificaciones
-        // promedio = suma / size;
-
-        //Imprimir el contenido del arreglo usando un for extendido
-        // System.out.println("Las calificaciones de los alumnos son:");
-        // for ( double calif : grade )
-        // System.out.println("Calificación del alumno: " + calif); //Tecla sout para crear la línea de código
-
-        // //Imprimir el promedio del grupo
-        // System.out.println("El promedio del grupo es: " + promedio);
+        System.out.println("-----------------------");
+        System.out.println("El promedio de grupo es: " + AverageGroup);
+        System.out.println("-----------------------");
+        System.out.println("El promedio de Estructuras es: " + AverageStructures);
+        System.out.println("-----------------------");
+        System.out.println("El promedio de Inglés es: " + AverageEnglish);
+        System.out.println("-----------------------");
+        System.out.println("El promedio de IoT es: " + AverageIot);
     }
 }

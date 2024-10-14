@@ -60,7 +60,7 @@ public class Alumno {
     }
 
     public void setAverage() {
-        this.average = (this.structures + this.english + this.iot / 3);
+        this.average = (this.structures + this.english + this.iot) / 3;
     }
 
     @Override //Anotación de Java para anular
